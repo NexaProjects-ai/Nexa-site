@@ -1,0 +1,36 @@
+name: Update commercial email
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-email.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace old project email
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          old = 'nexaprojects@outlook.be'
+          new = 'hello@nexaproject.be'
+          if old not in text:
+              raise SystemExit('Old email not found; refusing unrelated edit')
+          text = text.replace(old, new)
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit replacement
+        run: |
+          git config user.name "NexaProjects-ai"
+          git config user.email "hello@nexaproject.be"
+          git add index.html
+          git commit -m "Use hello@nexaproject.be across commercial site"
+          git push
