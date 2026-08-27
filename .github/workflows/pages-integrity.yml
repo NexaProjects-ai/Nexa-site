@@ -1,0 +1,24 @@
+name: Pages integrity
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public site invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f CNAME
+          grep -qx 'nexaproject.be' CNAME
+          test -f .nojekyll
+          echo 'Pages integrity OK: index.html, CNAME, .nojekyll present.'
