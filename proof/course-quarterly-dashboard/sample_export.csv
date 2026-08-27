@@ -1,0 +1,17 @@
+inschrijving_id;cursus;startdatum;status;locatie
+1001;Excel basis;15/01/2025;Deelgenomen;Leuven
+1002;Excel basis;22/01/2025;Deelgenomen;Leuven
+1003;Projectplanning;03/02/2025;Geannuleerd;Leuven
+1004;Leidinggeven;18/03/2025;Deelgenomen;Leuven
+1005;Presenteren;11/04/2025;No-show;Leuven
+1006;Excel basis;19/04/2025;Deelgenomen;Leuven
+1007;Projectplanning;06/05/2025;Deelgenomen;Leuven
+1008;Leidinggeven;20/05/2025;Deelgenomen;Leuven
+2001;Excel basis;14/01/2026;Deelgenomen;Leuven
+2002;Excel basis;21/01/2026;Deelgenomen;Leuven
+2003;Projectplanning;04/02/2026;Deelgenomen;Leuven
+2004;Leidinggeven;17/03/2026;Deelgenomen;Leuven
+2005;Presenteren;10/04/2026;Geannuleerd;Leuven
+2006;Excel basis;18/04/2026;Deelgenomen;Leuven
+2007;Projectplanning;05/05/2026;Deelgenomen;Leuven
+2008;Leidinggeven;19/05/2026;Deelgenomen;Leuven
