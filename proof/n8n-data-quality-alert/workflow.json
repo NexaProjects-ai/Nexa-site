@@ -1,0 +1,60 @@
+{
+  "name": "Nexa — Data Quality & Reporting Guardrail Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "01-manual-trigger",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { id: 'A-1001', customer: 'North', amount: 1250, status: 'paid' } },\n  { json: { id: 'A-1002', customer: 'South', amount: 980, status: 'open' } },\n  { json: { id: 'A-1002', customer: 'South', amount: 980, status: 'open' } },\n  { json: { id: '', customer: 'West', amount: 2200, status: 'paid' } },\n  { json: { id: 'A-1004', customer: 'East', amount: -75, status: 'open' } }\n];"
+      },
+      "id": "02-demo-data",
+      "name": "Load fictional demo data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = items.map(i => i.json);\nconst seen = new Set();\nconst duplicates = [];\nconst missingIds = [];\nconst negativeAmounts = [];\nlet total = 0;\nlet open = 0;\nfor (let index = 0; index < rows.length; index++) {\n  const r = rows[index];\n  const id = String(r.id ?? '').trim();\n  const amount = Number(r.amount ?? 0);\n  if (!id) missingIds.push(index + 1);\n  if (id && seen.has(id)) duplicates.push(id);\n  if (id) seen.add(id);\n  if (amount < 0) negativeAmounts.push({ row: index + 1, id, amount });\n  if (Number.isFinite(amount)) total += amount;\n  if (String(r.status).toLowerCase() === 'open') open++;\n}\nreturn [{ json: {\n  rowCount: rows.length,\n  totalAmount: total,\n  openCount: open,\n  issues: { missingIds, duplicates: [...new Set(duplicates)], negativeAmounts },\n  hasIssues: missingIds.length > 0 || duplicates.length > 0 || negativeAmounts.length > 0\n} }];"
+      },
+      "id": "03-validate",
+      "name": "Validate & summarize",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [540, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = items[0].json;\nconst issueCount = r.issues.missingIds.length + r.issues.duplicates.length + r.issues.negativeAmounts.length;\nconst recommendation = r.hasIssues\n  ? `Controle nodig vóór rapportage: ${issueCount} dataprobleem/problemen gevonden.`\n  : 'Geen blokkerende dataproblemen gevonden; rapportage kan worden vernieuwd.';\nreturn [{ json: {\n  status: r.hasIssues ? 'REVIEW' : 'READY',\n  recommendation,\n  metrics: { rows: r.rowCount, totalAmount: r.totalAmount, openItems: r.openCount },\n  issues: r.issues,\n  nextStep: r.hasIssues ? 'Corrigeer de gemarkeerde rijen en voer de workflow opnieuw uit.' : 'Publiceer of verzend het periodieke rapport.'\n} }];"
+      },
+      "id": "04-decision",
+      "name": "Create action-ready result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [820, 0]
+    }
+  ],
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [[{"node":"Load fictional demo data","type":"main","index":0}]]
+    },
+    "Load fictional demo data": {
+      "main": [[{"node":"Validate & summarize","type":"main","index":0}]]
+    },
+    "Validate & summarize": {
+      "main": [[{"node":"Create action-ready result","type":"main","index":0}]]
+    }
+  },
+  "pinData": {},
+  "active": false,
+  "settings": {"executionOrder":"v1"},
+  "versionId": "b636687a-bf0a-4fda-883e-4275d25810bd",
+  "meta": {"templateCredsSetupCompleted": true},
+  "tags": []
+}
