@@ -1,0 +1,12 @@
+source_page,record_id,invoice_date,supplier,sku,description,quantity,unit_price_eur,line_total_eur,validation_status
+1,INV-2026-0817-001,2026-08-17,Northstar Supplies,NS-4412,Blue nitrile gloves size M,12,8.45,101.40,VALIDATED
+1,INV-2026-0817-001,2026-08-17,Northstar Supplies,NS-4413,Blue nitrile gloves size L,10,8.45,84.50,VALIDATED
+2,INV-2026-0817-002,2026-08-17,Delta Trade,DT-1098,Microfibre cloth 40x40 cm,24,1.95,46.80,VALIDATED
+3,INV-2026-0818-003,2026-08-18,Northstar Supplies,NS-7720,Surface cleaner 5 L,6,18.90,113.40,VALIDATED
+4,INV-2026-0818-004,2026-08-18,Harbor Office,HO-2201,A4 copy paper 80 gsm,20,4.85,97.00,VALIDATED
+5,INV-2026-0819-005,2026-08-19,Delta Trade,DT-3011,Disposable aprons white,8,11.25,90.00,VALIDATED
+6,INV-2026-0819-006,2026-08-19,Northstar Supplies,NS-1180,Hand soap 500 ml,18,3.40,61.20,VALIDATED
+7,INV-2026-0820-007,2026-08-20,Harbor Office,HO-9910,Permanent marker black,12,1.70,20.40,VALIDATED
+8,INV-2026-0820-008,2026-08-20,Delta Trade,DT-8850,Heavy duty refuse bags 120 L,5,14.60,73.00,VALIDATED
+9,INV-2026-0821-009,2026-08-21,Northstar Supplies,NS-4412,Blue nitrile gloves size M,15,8.45,126.75,VALIDATED
+10,INV-2026-0821-010,2026-08-21,Harbor Office,HO-3320,Shipping labels 100x150 mm,4,22.50,90.00,REVIEW_REQUIRED
