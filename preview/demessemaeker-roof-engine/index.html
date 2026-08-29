@@ -1,284 +1,48 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Voorbeeld aanvraagflow voor Demessemaeker</title>
-  <style>
-    :root{
-      --ink:#172124;
-      --muted:#667377;
-      --bg:#f5f6f3;
-      --card:#ffffff;
-      --line:#dde3df;
-      --accent:#b82f2b;
-      --accent-soft:#fff1f0;
-      --dark:#243438;
-      --ok:#276756;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    button,input,textarea{font:inherit}
-    button{touch-action:manipulation}
-    .concept{background:#172124;color:#f4f6f4;text-align:center;padding:9px 14px;font-size:12px}
-    .owner-note{max-width:620px;margin:16px auto 0;padding:0 18px;color:var(--muted);font-size:13px;text-align:center}
-    .shell{width:min(620px,calc(100% - 28px));margin:18px auto 52px}
-    .brand{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-    .brand strong{font-size:20px;letter-spacing:-.02em}
-    .brand span{font-size:12px;color:var(--muted)}
-    .panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 50px rgba(24,37,40,.08)}
-    .intro h1{font-size:34px;line-height:1.05;letter-spacing:-.04em;margin:4px 0 12px}
-    .intro p{margin:0;color:var(--muted);font-size:17px}
-    .question{margin-top:24px;font-size:21px;font-weight:800;letter-spacing:-.02em}
-    .options{display:grid;gap:10px;margin-top:13px}
-    .big-choice{width:100%;min-height:64px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:15px 16px;text-align:left;color:var(--ink);font-weight:750;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .big-choice:hover,.big-choice:focus,.big-choice.selected{border-color:var(--accent);background:var(--accent-soft);outline:none}
-    .big-choice .arrow{font-size:22px;font-weight:500;color:var(--accent)}
-    .call{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:13px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;margin-top:12px}
-    .small{font-size:12px;color:var(--muted)}
-    .step{display:none}
-    .step.active{display:block}
-    .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-    .progress-text{font-size:13px;color:var(--muted);font-weight:700}
-    .progress{height:5px;background:#e8ece9;border-radius:99px;overflow:hidden;margin-bottom:24px}
-    .bar{height:100%;background:var(--accent);width:25%;transition:width .2s ease}
-    h2{font-size:28px;line-height:1.08;letter-spacing:-.03em;margin:0 0 8px}
-    .help{color:var(--muted);margin:0 0 18px}
-    .field{width:100%;border:1px solid var(--line);border-radius:13px;padding:15px 14px;background:#fff;color:var(--ink);margin-bottom:10px}
-    .field:focus{outline:2px solid rgba(184,47,43,.15);border-color:var(--accent)}
-    textarea.field{min-height:96px;resize:vertical}
-    .photo{display:block;border:1px dashed #bfc9c4;border-radius:13px;padding:14px;margin-top:10px;background:#fafbf9;cursor:pointer}
-    .photo input{display:none}
-    .photo b{display:block;margin-bottom:3px}
-    .nav{display:flex;gap:10px;margin-top:22px}
-    .btn{flex:1;min-height:54px;border:0;border-radius:13px;padding:12px 16px;font-weight:800;cursor:pointer;background:var(--accent);color:#fff}
-    .btn.secondary{background:#eef1ef;color:var(--ink)}
-    .btn:disabled{opacity:.45;cursor:not-allowed}
-    .result{display:none}
-    .result.active{display:block}
-    .check{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#eaf5f1;color:var(--ok);font-size:26px;font-weight:900;margin-bottom:14px}
-    .result h2{font-size:31px}
-    .summary{margin-top:20px;border-top:1px solid var(--line)}
-    .row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
-    .row span{color:var(--muted)}
-    .owner-box{margin-top:22px;background:var(--dark);color:#fff;border-radius:17px;padding:18px}
-    .owner-box .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#c6d2cf;font-weight:800}
-    .owner-box h3{font-size:21px;line-height:1.15;margin:7px 0 12px}
-    .lead-action{background:#fff;color:var(--ink);border-radius:12px;padding:13px 14px;margin-top:12px}
-    .lead-action span{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
-    .lead-action b{font-size:17px}
-    .explain{margin-top:20px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:17px}
-    .explain h3{margin:0 0 8px;font-size:20px}
-    .explain p{margin:0;color:var(--muted)}
-    footer{width:min(620px,calc(100% - 28px));margin:0 auto 40px;color:var(--muted);font-size:12px;text-align:center}
-    @media(max-width:480px){
-      .concept{font-size:11px;padding:8px 10px}
-      .owner-note{margin-top:12px}
-      .shell{width:min(100% - 20px,620px);margin-top:12px}
-      .panel{padding:18px;border-radius:18px}
-      .intro h1{font-size:31px}
-      .intro p{font-size:16px}
-      .brand{margin:0 4px 14px}
-      .brand span{display:none}
-      h2{font-size:25px}
-      .big-choice{min-height:68px;font-size:16px}
-      .nav{position:sticky;bottom:0;background:linear-gradient(transparent,var(--card) 22%);padding-top:18px;padding-bottom:max(4px,env(safe-area-inset-bottom))}
-      .row{grid-template-columns:88px 1fr}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Privé concept voor Demessemaeker</title>
+<style>
+:root{--ink:#192326;--mut:#607076;--bg:#f4f5f2;--card:#fff;--accent:#b92f2a;--accent2:#95241f;--line:#dde3df;--soft:#eef1ee;--dark:#26363a;--ok:#276653;--shadow:0 14px 40px rgba(25,35,38,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}button,input,textarea{font:inherit}button{touch-action:manipulation}.topnote{background:#192326;color:#e8edeb;text-align:center;padding:8px 14px;font-size:12px}.shell{width:min(760px,calc(100% - 28px));margin:0 auto}header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0}.brand{font-size:20px;font-weight:900;letter-spacing:-.035em}.call{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}main{padding:4px 0 46px}.intro{padding:14px 0 20px}.kicker{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:7px}h1{font-size:clamp(34px,9vw,54px);line-height:1.02;letter-spacing:-.05em;margin:0 0 12px}.intro p{font-size:18px;color:var(--mut);margin:0;max-width:650px}.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.panelhead{padding:20px 20px 10px}.panelhead h2{font-size:25px;line-height:1.15;letter-spacing:-.025em;margin:0 0 6px}.panelhead p{margin:0;color:var(--mut)}.choices{display:grid;gap:11px;padding:10px 16px 20px}.bigchoice{width:100%;min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px;text-align:left;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:.15s}.bigchoice:active{transform:scale(.99)}.bigchoice:hover,.bigchoice:focus-visible{border-color:#c98581;box-shadow:0 0 0 3px rgba(185,47,42,.08);outline:0}.bigchoice b{display:block;font-size:18px;line-height:1.2;margin-bottom:4px}.bigchoice span span{display:block;color:var(--mut);font-size:14px;font-weight:500}.arrow{font-size:24px;color:var(--accent);font-weight:700;flex:0 0 auto}.help{padding:0 20px 20px;color:var(--mut);font-size:14px}.help a{color:var(--ink);font-weight:800}.flow{display:none}.flow.active{display:block}.progresswrap{padding:17px 20px 0}.progressmeta{display:flex;justify-content:space-between;gap:12px;color:var(--mut);font-size:12px;margin-bottom:8px}.progress{height:6px;border-radius:999px;background:#e8ece9;overflow:hidden}.bar{height:100%;width:25%;background:var(--accent);transition:width .2s ease}.step{display:none;padding:22px 20px 20px}.step.active{display:block}.step h2{font-size:27px;line-height:1.12;letter-spacing:-.03em;margin:0 0 7px}.step .sub{color:var(--mut);margin:0 0 18px}.answergrid{display:grid;gap:10px}.answer{width:100%;min-height:64px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 15px;text-align:left;font-weight:750;color:var(--ink);cursor:pointer}.answer:hover,.answer:focus-visible,.answer.selected{border-color:var(--accent);background:#fff6f5;outline:0}.field{width:100%;min-height:56px;border:1px solid #cfd7d2;border-radius:13px;padding:14px;background:#fff;color:var(--ink);outline:0}.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(185,47,42,.08)}label{display:block;font-size:14px;font-weight:800;margin:15px 0 7px}.optional{font-weight:500;color:var(--mut)}.photo{display:block;width:100%;border:1px dashed #b7c1bc;border-radius:14px;padding:14px;background:#fafbfa;color:var(--mut)}.note{font-size:12px;color:var(--mut);margin-top:8px}.nav{display:flex;gap:10px;padding-top:20px}.btn{min-height:52px;border:0;border-radius:13px;padding:0 18px;font-weight:850;cursor:pointer}.btn.primary{background:var(--accent);color:#fff;flex:1}.btn.primary:hover{background:var(--accent2)}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.summary{display:none;padding:22px 20px 24px}.summary.active{display:block}.success{display:flex;align-items:center;gap:11px;margin-bottom:18px}.check{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#e7f2ee;color:var(--ok);font-weight:950;font-size:20px;flex:0 0 38px}.success h2{font-size:27px;line-height:1.12;margin:0}.success p{margin:3px 0 0;color:var(--mut)}.ownerlabel{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--mut);margin:22px 0 8px}.leadcard{background:var(--dark);color:#fff;border-radius:17px;padding:18px}.leadcard h3{font-size:21px;margin:0 0 13px}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;font-weight:900;margin-bottom:11px}.row{display:grid;grid-template-columns:105px 1fr;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.14);font-size:14px}.row span{color:#bdc9c6}.actionbox{margin-top:13px;background:#fff;color:var(--ink);border-radius:12px;padding:13px}.actionbox small{display:block;color:var(--mut);margin-bottom:3px}.actionbox b{font-size:16px}.ownerbenefit{margin-top:18px;padding:18px;border:1px solid var(--line);border-radius:16px;background:#f9faf8}.ownerbenefit h3{margin:0 0 9px;font-size:20px}.ownerbenefit ul{margin:0;padding-left:20px;color:var(--mut)}.ownerbenefit li+li{margin-top:6px}.restart{margin-top:14px;width:100%}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.fact{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.fact b{display:block;font-size:15px}.fact span{font-size:12px;color:var(--mut)}footer{padding:28px 0 46px;color:var(--mut);font-size:12px}
+@media(max-width:620px){.shell{width:min(100% - 20px,760px)}.topnote{font-size:11px;padding:7px 10px}header{padding:11px 0}.brand{font-size:18px}.call{min-height:44px;padding:0 12px;font-size:14px}main{padding-top:0}.intro{padding:10px 2px 16px}.intro p{font-size:16px}.panel{border-radius:18px}.panelhead{padding:18px 16px 8px}.panelhead h2{font-size:23px}.choices{padding:9px 12px 16px}.bigchoice{min-height:84px;padding:15px}.bigchoice b{font-size:17px}.help{padding:0 16px 17px}.progresswrap{padding:15px 16px 0}.step,.summary{padding:19px 16px 18px}.step h2,.success h2{font-size:25px}.answer{min-height:66px;font-size:16px}.btn{min-height:54px}.facts{grid-template-columns:1fr}.row{grid-template-columns:92px 1fr}}
+</style>
 </head>
 <body>
-  <div class="concept">Privé concept voor Demessemaeker. Dit is niet de officiële website en wordt niet geïndexeerd.</div>
-  <p class="owner-note">Zo zou een klant op zijn gsm eenvoudig een dakprobleem of geplande dakwerken kunnen doorgeven.</p>
-
-  <main class="shell">
-    <div class="brand">
-      <strong>Demessemaeker</strong>
-      <span>voorbeeld gemaakt door Nexa Project</span>
-    </div>
-
-    <section class="panel" id="app">
-      <div class="step active intro" data-step="0">
-        <h1>Waarmee kunnen we u helpen?</h1>
-        <p>Kies wat het best bij uw situatie past. U krijgt alleen de vragen die nodig zijn.</p>
-        <div class="options" style="margin-top:24px">
-          <button class="big-choice" data-start="urgent">
-            <span>Ik heb nu een lek of schade</span><span class="arrow">›</span>
-          </button>
-          <button class="big-choice" data-start="planned">
-            <span>Ik plan dakwerken of een renovatie</span><span class="arrow">›</span>
-          </button>
-        </div>
-        <a class="call" href="tel:+3214231591">Liever bellen? 014 23 15 91</a>
-        <p class="small" style="margin-top:12px">Demo: er wordt niets verzonden of opgeslagen.</p>
-      </div>
-
-      <div class="step" data-step="1">
-        <div class="topline"><span class="progress-text">Stap 1 van 3</span><span class="small" id="modeLabel"></span></div>
-        <div class="progress"><div class="bar" id="bar1"></div></div>
-        <h2 id="problemTitle">Wat is er aan de hand?</h2>
-        <p class="help" id="problemHelp">Kies de optie die het dichtst in de buurt komt.</p>
-        <div class="options" id="problemOptions"></div>
-        <div class="nav"><button class="btn secondary" data-back>Terug</button></div>
-      </div>
-
-      <div class="step" data-step="2">
-        <div class="topline"><span class="progress-text">Stap 2 van 3</span><span class="small" id="modeLabel2"></span></div>
-        <div class="progress"><div class="bar" style="width:66%"></div></div>
-        <h2>Waar gaat het over?</h2>
-        <p class="help">Met een postcode en timing kan de aanvraag meteen beter ingeschat worden.</p>
-        <input class="field" id="postcode" inputmode="numeric" autocomplete="postal-code" placeholder="Postcode, bijvoorbeeld 2200">
-        <div class="options" id="timingOptions">
-          <button class="big-choice" data-timing="Zo snel mogelijk"><span>Zo snel mogelijk</span><span class="arrow">›</span></button>
-          <button class="big-choice" data-timing="Binnen enkele weken"><span>Binnen enkele weken</span><span class="arrow">›</span></button>
-          <button class="big-choice" data-timing="Binnen enkele maanden"><span>Binnen enkele maanden</span><span class="arrow">›</span></button>
-          <button class="big-choice" data-timing="Ik weet het nog niet"><span>Ik weet het nog niet</span><span class="arrow">›</span></button>
-        </div>
-        <div class="nav"><button class="btn secondary" data-back>Terug</button></div>
-      </div>
-
-      <div class="step" data-step="3">
-        <div class="topline"><span class="progress-text">Stap 3 van 3</span><span class="small" id="modeLabel3"></span></div>
-        <div class="progress"><div class="bar" style="width:100%"></div></div>
-        <h2>Nog iets dat handig is om te weten?</h2>
-        <p class="help">Een korte uitleg of foto kan een extra telefoontje besparen. Dit is optioneel.</p>
-        <textarea class="field" id="note" placeholder="Bijvoorbeeld: het lekt naast de schouw, of: we willen het volledige dak vernieuwen"></textarea>
-        <label class="photo">
-          <input type="file" id="photo" accept="image/*">
-          <b>Foto toevoegen</b>
-          <span class="small" id="photoText">Optioneel. In deze demo blijft de foto alleen op uw toestel.</span>
-        </label>
-        <div class="nav">
-          <button class="btn secondary" data-back>Terug</button>
-          <button class="btn" id="finish">Bekijk wat Demessemaeker ontvangt</button>
-        </div>
-      </div>
-
-      <div class="result" id="result">
-        <div class="check">✓</div>
-        <h2>Dat is alles.</h2>
-        <p class="help">De klant hoeft geen lang formulier in te vullen. Demessemaeker krijgt meteen de belangrijkste informatie.</p>
-
-        <div class="summary">
-          <div class="row"><span>Vraag</span><b id="rMode"></b></div>
-          <div class="row"><span>Situatie</span><b id="rProblem"></b></div>
-          <div class="row"><span>Postcode</span><b id="rPostcode"></b></div>
-          <div class="row"><span>Timing</span><b id="rTiming"></b></div>
-          <div class="row"><span>Extra info</span><b id="rNote"></b></div>
-          <div class="row"><span>Foto</span><b id="rPhoto"></b></div>
-        </div>
-
-        <div class="owner-box">
-          <div class="eyebrow">Voor Demessemaeker</div>
-          <h3>Geen losse mail. Meteen weten wat er speelt en wat de volgende stap is.</h3>
-          <div class="lead-action">
-            <span>Logische volgende actie</span>
-            <b id="rAction"></b>
-          </div>
-        </div>
-
-        <button class="btn secondary" id="restart" style="width:100%;margin-top:14px">Demo opnieuw bekijken</button>
-      </div>
-    </section>
-
-    <div class="explain">
-      <h3>Wat is hier anders?</h3>
-      <p>Een dringende lekkage krijgt een korte route. Een geplande renovatie krijgt andere vragen. Zo krijgt de klant een eenvoudiger formulier en krijgt Demessemaeker minder onduidelijke aanvragen.</p>
-    </div>
-  </main>
-
-  <footer>
-    Concept door Nexa Project op basis van publiek beschikbare informatie van Demessemaeker. Geen reviews, prijzen, prestaties of koppelingen verzonnen. Deze demo verstuurt geen gegevens.
-  </footer>
-
-  <script>
-    const state={mode:'',problem:'',postcode:'',timing:'',note:'',photo:false};
-    const steps=[...document.querySelectorAll('.step')];
-    const result=document.getElementById('result');
-    const problemOptions=document.getElementById('problemOptions');
-
-    const urgentProblems=[
-      'Er lekt water binnen',
-      'Stormschade of losse dakdelen',
-      'Een plaatselijke herstelling',
-      'Ik weet niet precies wat er mis is'
-    ];
-    const plannedProblems=[
-      'Volledige dakrenovatie',
-      'Plat dak vernieuwen',
-      'Hellend dak vernieuwen',
-      'Isolatie of meerdere dakwerken',
-      'Ik wil eerst advies'
-    ];
-
-    function showStep(n){
-      result.classList.remove('active');
-      steps.forEach(s=>s.classList.toggle('active',Number(s.dataset.step)===n));
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-
-    function setMode(mode){
-      state.mode=mode;
-      state.problem='';
-      state.timing='';
-      document.getElementById('modeLabel').textContent=mode==='urgent'?'Dringend':'Gepland';
-      document.getElementById('modeLabel2').textContent=mode==='urgent'?'Dringend':'Gepland';
-      document.getElementById('modeLabel3').textContent=mode==='urgent'?'Dringend':'Gepland';
-      document.getElementById('problemTitle').textContent=mode==='urgent'?'Wat is er aan de hand?':'Wat wilt u laten doen?';
-      document.getElementById('problemHelp').textContent=mode==='urgent'?'Kies wat het best overeenkomt. U hoeft geen technische termen te kennen.':'Kies wat het best overeenkomt. Twijfelen mag.';
-      problemOptions.innerHTML='';
-      (mode==='urgent'?urgentProblems:plannedProblems).forEach(label=>{
-        const b=document.createElement('button');
-        b.className='big-choice';
-        b.innerHTML='<span>'+label+'</span><span class="arrow">›</span>';
-        b.addEventListener('click',()=>{state.problem=label;showStep(2)});
-        problemOptions.appendChild(b);
-      });
-      showStep(1);
-    }
-
-    document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.start)));
-    document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{
-      const current=Number(b.closest('.step').dataset.step);
-      showStep(Math.max(0,current-1));
-    }));
-
-    document.querySelectorAll('[data-timing]').forEach(b=>b.addEventListener('click',()=>{
-      state.postcode=document.getElementById('postcode').value.trim()||'Niet ingevuld';
-      state.timing=b.dataset.timing;
-      showStep(3);
-    }));
-
-    document.getElementById('photo').addEventListener('change',e=>{
-      state.photo=Boolean(e.target.files&&e.target.files[0]);
-      document.getElementById('photoText').textContent=state.photo?e.target.files[0].name:'Optioneel. In deze demo blijft de foto alleen op uw toestel.';
-    });
-
-    document.getElementById('finish').addEventListener('click',()=>{
-      state.note=document.getElementById('note').value.trim()||'Geen extra info';
-      state.postcode=document.getElementById('postcode').value.trim()||state.postcode||'Niet ingevuld';
-      document.getElementById('rMode').textContent=state.mode==='urgent'?'Dringend probleem':'Geplande dakwerken';
-      document.getElementById('rProblem').textContent=state.problem||'Niet gekozen';
-      document.getElementById('rPostcode').textContent=state.postcode;
-      document.getElementById('rTiming').textContent=state.timing||'Niet gekozen';
-      document.getElementById('rNote').textContent=state.note;
-      document.getElementById('rPhoto').textContent=state.photo?'Ja':'Nee';
-      document.getElementById('rAction').textContent=state.mode==='urgent'?'Klant terugbellen en probleem kort beoordelen':'Eerste gesprek of plaatsbezoek inplannen';
-      steps.forEach(s=>s.classList.remove('active'));
-      result.classList.add('active');
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-
-    document.getElementById('restart').addEventListener('click',()=>{
-      Object.assign(state,{mode:'',problem:'',postcode:'',timing:'',note:'',photo:false});
-      document.getElementById('postcode').value='';
-      document.getElementById('note').value='';
-      document.getElementById('photo').value='';
-      document.getElementById('photoText').textContent='Optioneel. In deze demo blijft de foto alleen op uw toestel.';
-      showStep(0);
-    });
-  </script>
-</body>
-</html>
+<div class="topnote">Privé concept voor Demessemaeker. Dit is geen officiële website en er wordt niets verstuurd.</div>
+<header class="shell"><div class="brand">Demessemaeker</div><a class="call" href="tel:+3214231591">Bel 014 23 15 91</a></header>
+<main class="shell">
+<section class="intro"><div class="kicker">Dakwerken in Herentals</div><h1>Wat is er aan de hand met uw dak?</h1><p>Kies wat het best past. U krijgt alleen de vragen die nodig zijn.</p></section>
+<section class="panel" id="start">
+<div class="panelhead"><h2>Waarmee kunnen we u helpen?</h2><p>Dit duurt ongeveer één minuut.</p></div>
+<div class="choices">
+<button class="bigchoice" data-start="urgent"><span><b>Er is een lek of schade</b><span>Waterinsijpeling, stormschade of een dringende herstelling.</span></span><span class="arrow">›</span></button>
+<button class="bigchoice" data-start="planned"><span><b>Ik wil dakwerken plannen</b><span>Renovatie, nieuwbouw, isolatie of grotere werken.</span></span><span class="arrow">›</span></button>
+</div>
+<div class="help">Liever meteen iemand spreken? <a href="tel:+3214231591">Bel Demessemaeker</a>.</div>
+</section>
+<section class="panel flow" id="flow">
+<div class="progresswrap"><div class="progressmeta"><span id="stepLabel">Vraag 1 van 4</span><span id="modeLabel"></span></div><div class="progress"><div class="bar" id="bar"></div></div></div>
+<div class="step" data-step="0"><h2 id="q1Title">Wat is er precies aan de hand?</h2><p class="sub" id="q1Sub">Kies wat het best past.</p><div class="answergrid" id="q1Answers"></div><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
+<div class="step" data-step="1"><h2>Waar zijn de werken?</h2><p class="sub">Een postcode is genoeg om te zien of de locatie past.</p><label for="postcode">Postcode</label><input class="field" id="postcode" inputmode="numeric" autocomplete="postal-code" placeholder="Bijvoorbeeld 2200" maxlength="8"><label for="street">Straat en huisnummer <span class="optional">optioneel in deze demo</span></label><input class="field" id="street" autocomplete="street-address" placeholder="Bijvoorbeeld Kerkstraat 12"><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" data-next>Verder</button></div></div>
+<div class="step" data-step="2"><h2 id="timingTitle">Hoe dringend is het?</h2><p class="sub" id="timingSub">Kies wat het best past.</p><div class="answergrid" id="timingAnswers"></div><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
+<div class="step" data-step="3"><h2>Hoe kunnen we u bereiken?</h2><p class="sub">In deze demo wordt niets verzonden of opgeslagen.</p><label for="name">Naam</label><input class="field" id="name" autocomplete="name" placeholder="Uw naam"><label for="phone">Telefoonnummer</label><input class="field" id="phone" inputmode="tel" autocomplete="tel" placeholder="Bijvoorbeeld 0470 12 34 56"><label for="photo">Foto toevoegen <span class="optional">optioneel</span></label><input class="photo" id="photo" type="file" accept="image/*"><div class="note">De foto blijft in deze demo alleen op uw toestel.</div><label for="note">Nog iets dat belangrijk is? <span class="optional">optioneel</span></label><textarea class="field" id="note" rows="3" placeholder="Kort bericht"></textarea><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" id="finish">Bekijk wat Demessemaeker ontvangt</button></div></div>
+<div class="summary" id="summary"><div class="success"><div class="check">✓</div><div><h2>Bedankt. Dit is duidelijk.</h2><p>In een echte versie kan Demessemaeker hier meteen mee verder.</p></div></div><div class="ownerlabel">Zo komt de aanvraag bij Demessemaeker binnen</div><div class="leadcard"><div class="badge" id="cardBadge">NIEUWE AANVRAAG</div><h3 id="cardTitle">Dakwerken</h3><div class="row"><span>Probleem</span><b id="cardProblem">—</b></div><div class="row"><span>Locatie</span><b id="cardLocation">—</b></div><div class="row"><span>Timing</span><b id="cardTiming">—</b></div><div class="row"><span>Foto</span><b id="cardPhoto">Geen foto</b></div><div class="row"><span>Contact</span><b id="cardContact">—</b></div><div class="actionbox"><small>Logische volgende stap</small><b id="cardAction">Terugbellen</b></div></div><div class="ownerbenefit"><h3>Wat verandert dit voor Demessemaeker?</h3><ul><li>Dringende problemen vallen meteen op.</li><li>Bij renovaties zijn locatie, soort werk en timing vooraf duidelijk.</li><li>Minder tijd kwijt aan terugbellen om eerst de basisinformatie te verzamelen.</li></ul></div><button class="btn secondary restart" type="button" id="restart">Opnieuw proberen</button></div>
+</section>
+<div class="facts"><div class="fact"><b>Renovatie en nieuwbouw</b><span>Volgens demessemaeker.be</span></div><div class="fact"><b>Plat en hellend dak</b><span>Volgens demessemaeker.be</span></div><div class="fact"><b>Herentals</b><span>Noordervaart 29</span></div></div>
+</main>
+<footer class="shell">Dit is een privé, niet-officieel concept van Nexa Project op basis van publiek vermelde bedrijfsinformatie van Demessemaeker. Er worden in deze demo geen gegevens verzonden of opgeslagen.</footer>
+<script>
+const start=document.getElementById('start'),flow=document.getElementById('flow'),steps=[...document.querySelectorAll('.step')],summary=document.getElementById('summary'),bar=document.getElementById('bar'),stepLabel=document.getElementById('stepLabel'),modeLabel=document.getElementById('modeLabel');
+let mode='',index=0;const data={problem:'',postcode:'',street:'',timing:'',name:'',phone:'',note:'',photo:false};
+const config={urgent:{label:'Dringend probleem',q1:'Wat is er precies aan de hand?',sub:'Kies wat het best past. U hoeft het probleem niet zelf te kunnen beoordelen.',problems:['Er komt water binnen','Stormschade','Losse of beschadigde dakdelen','Andere herstelling / ik weet het niet'],timingTitle:'Hoe dringend is het?',timingSub:'Zo weet Demessemaeker wat eerst bekeken moet worden.',timings:['Nu / vandaag','Zo snel mogelijk','Binnen enkele dagen','Niet dringend']},planned:{label:'Geplande dakwerken',q1:'Welke werken wilt u laten uitvoeren?',sub:'Een ruwe keuze is genoeg. U hoeft geen vaktermen te kennen.',problems:['Volledige dakrenovatie','Nieuw dak / nieuwbouw','Plat dak','Isolatie of andere dakwerken'],timingTitle:'Wanneer wilt u de werken ongeveer uitvoeren?',timingSub:'Een schatting is voldoende.',timings:['Zo snel mogelijk','Binnen 1 maand','Binnen 3 maanden','Later / ik oriënteer me nog']}};
+function makeAnswers(target,items,key){target.innerHTML='';items.forEach(txt=>{const b=document.createElement('button');b.type='button';b.className='answer';b.textContent=txt;b.addEventListener('click',()=>{target.querySelectorAll('.answer').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');data[key]=txt;setTimeout(()=>go(index+1),120)});target.appendChild(b)})}
+function begin(which){mode=which;index=0;const c=config[mode];modeLabel.textContent=c.label;document.getElementById('q1Title').textContent=c.q1;document.getElementById('q1Sub').textContent=c.sub;document.getElementById('timingTitle').textContent=c.timingTitle;document.getElementById('timingSub').textContent=c.timingSub;makeAnswers(document.getElementById('q1Answers'),c.problems,'problem');makeAnswers(document.getElementById('timingAnswers'),c.timings,'timing');start.style.display='none';flow.classList.add('active');summary.classList.remove('active');document.querySelector('.progresswrap').style.display='block';go(0);flow.scrollIntoView({behavior:'smooth',block:'start'})}
+function go(n){if(n<0){start.style.display='block';flow.classList.remove('active');start.scrollIntoView({behavior:'smooth'});return}index=Math.max(0,Math.min(3,n));steps.forEach((s,i)=>s.classList.toggle('active',i===index));summary.classList.remove('active');bar.style.width=((index+1)/4*100)+'%';stepLabel.textContent=`Vraag ${index+1} van 4`}
+document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>begin(b.dataset.start)));document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>go(index-1)));document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{data.postcode=document.getElementById('postcode').value.trim();data.street=document.getElementById('street').value.trim();if(!data.postcode){document.getElementById('postcode').focus();return}go(index+1)}));document.getElementById('photo').addEventListener('change',e=>data.photo=!!e.target.files.length);
+document.getElementById('finish').addEventListener('click',()=>{data.name=document.getElementById('name').value.trim();data.phone=document.getElementById('phone').value.trim();data.note=document.getElementById('note').value.trim();data.postcode=document.getElementById('postcode').value.trim();data.street=document.getElementById('street').value.trim();if(!data.name){document.getElementById('name').focus();return}if(!data.phone){document.getElementById('phone').focus();return}steps.forEach(s=>s.classList.remove('active'));document.querySelector('.progresswrap').style.display='none';summary.classList.add('active');document.getElementById('cardBadge').textContent=mode==='urgent'?'DRINGEND PROBLEEM':'GEPLANDE DAKWERKEN';document.getElementById('cardTitle').textContent=mode==='urgent'?'Nieuwe dringende aanvraag':'Nieuwe aanvraag voor dakwerken';document.getElementById('cardProblem').textContent=data.problem||'Niet ingevuld';document.getElementById('cardLocation').textContent=[data.street,data.postcode].filter(Boolean).join(', ')||'Niet ingevuld';document.getElementById('cardTiming').textContent=data.timing||'Niet ingevuld';document.getElementById('cardPhoto').textContent=data.photo?'Foto toegevoegd':'Geen foto toegevoegd';document.getElementById('cardContact').textContent=[data.name,data.phone].filter(Boolean).join(' · ');document.getElementById('cardAction').textContent=mode==='urgent'?'Terugbellen en dringendheid beoordelen':'Terugbellen en plaatsbezoek bespreken';summary.scrollIntoView({behavior:'smooth',block:'start'})});document.getElementById('restart').addEventListener('click',()=>location.reload());
+</script>
+</body></html>
