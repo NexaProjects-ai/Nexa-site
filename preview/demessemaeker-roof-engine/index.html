@@ -4,45 +4,179 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Privé concept voor Demessemaeker</title>
+<title>Demessemaeker — privé geïntegreerd concept</title>
 <style>
-:root{--ink:#192326;--mut:#607076;--bg:#f4f5f2;--card:#fff;--accent:#b92f2a;--accent2:#95241f;--line:#dde3df;--soft:#eef1ee;--dark:#26363a;--ok:#276653;--shadow:0 14px 40px rgba(25,35,38,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}button,input,textarea{font:inherit}button{touch-action:manipulation}.topnote{background:#192326;color:#e8edeb;text-align:center;padding:8px 14px;font-size:12px}.shell{width:min(760px,calc(100% - 28px));margin:0 auto}header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0}.brand{font-size:20px;font-weight:900;letter-spacing:-.035em}.call{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}main{padding:4px 0 46px}.intro{padding:14px 0 20px}.kicker{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:7px}h1{font-size:clamp(34px,9vw,54px);line-height:1.02;letter-spacing:-.05em;margin:0 0 12px}.intro p{font-size:18px;color:var(--mut);margin:0;max-width:650px}.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.panelhead{padding:20px 20px 10px}.panelhead h2{font-size:25px;line-height:1.15;letter-spacing:-.025em;margin:0 0 6px}.panelhead p{margin:0;color:var(--mut)}.choices{display:grid;gap:11px;padding:10px 16px 20px}.bigchoice{width:100%;min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px;text-align:left;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:.15s}.bigchoice:active{transform:scale(.99)}.bigchoice:hover,.bigchoice:focus-visible{border-color:#c98581;box-shadow:0 0 0 3px rgba(185,47,42,.08);outline:0}.bigchoice b{display:block;font-size:18px;line-height:1.2;margin-bottom:4px}.bigchoice span span{display:block;color:var(--mut);font-size:14px;font-weight:500}.arrow{font-size:24px;color:var(--accent);font-weight:700;flex:0 0 auto}.help{padding:0 20px 20px;color:var(--mut);font-size:14px}.help a{color:var(--ink);font-weight:800}.flow{display:none}.flow.active{display:block}.progresswrap{padding:17px 20px 0}.progressmeta{display:flex;justify-content:space-between;gap:12px;color:var(--mut);font-size:12px;margin-bottom:8px}.progress{height:6px;border-radius:999px;background:#e8ece9;overflow:hidden}.bar{height:100%;width:25%;background:var(--accent);transition:width .2s ease}.step{display:none;padding:22px 20px 20px}.step.active{display:block}.step h2{font-size:27px;line-height:1.12;letter-spacing:-.03em;margin:0 0 7px}.step .sub{color:var(--mut);margin:0 0 18px}.answergrid{display:grid;gap:10px}.answer{width:100%;min-height:64px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 15px;text-align:left;font-weight:750;color:var(--ink);cursor:pointer}.answer:hover,.answer:focus-visible,.answer.selected{border-color:var(--accent);background:#fff6f5;outline:0}.field{width:100%;min-height:56px;border:1px solid #cfd7d2;border-radius:13px;padding:14px;background:#fff;color:var(--ink);outline:0}.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(185,47,42,.08)}label{display:block;font-size:14px;font-weight:800;margin:15px 0 7px}.optional{font-weight:500;color:var(--mut)}.photo{display:block;width:100%;border:1px dashed #b7c1bc;border-radius:14px;padding:14px;background:#fafbfa;color:var(--mut)}.note{font-size:12px;color:var(--mut);margin-top:8px}.nav{display:flex;gap:10px;padding-top:20px}.btn{min-height:52px;border:0;border-radius:13px;padding:0 18px;font-weight:850;cursor:pointer}.btn.primary{background:var(--accent);color:#fff;flex:1}.btn.primary:hover{background:var(--accent2)}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.summary{display:none;padding:22px 20px 24px}.summary.active{display:block}.success{display:flex;align-items:center;gap:11px;margin-bottom:18px}.check{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#e7f2ee;color:var(--ok);font-weight:950;font-size:20px;flex:0 0 38px}.success h2{font-size:27px;line-height:1.12;margin:0}.success p{margin:3px 0 0;color:var(--mut)}.ownerlabel{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--mut);margin:22px 0 8px}.leadcard{background:var(--dark);color:#fff;border-radius:17px;padding:18px}.leadcard h3{font-size:21px;margin:0 0 13px}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;font-weight:900;margin-bottom:11px}.row{display:grid;grid-template-columns:105px 1fr;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.14);font-size:14px}.row span{color:#bdc9c6}.actionbox{margin-top:13px;background:#fff;color:var(--ink);border-radius:12px;padding:13px}.actionbox small{display:block;color:var(--mut);margin-bottom:3px}.actionbox b{font-size:16px}.ownerbenefit{margin-top:18px;padding:18px;border:1px solid var(--line);border-radius:16px;background:#f9faf8}.ownerbenefit h3{margin:0 0 9px;font-size:20px}.ownerbenefit ul{margin:0;padding-left:20px;color:var(--mut)}.ownerbenefit li+li{margin-top:6px}.restart{margin-top:14px;width:100%}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.fact{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.fact b{display:block;font-size:15px}.fact span{font-size:12px;color:var(--mut)}footer{padding:28px 0 46px;color:var(--mut);font-size:12px}
-@media(max-width:620px){.shell{width:min(100% - 20px,760px)}.topnote{font-size:11px;padding:7px 10px}header{padding:11px 0}.brand{font-size:18px}.call{min-height:44px;padding:0 12px;font-size:14px}main{padding-top:0}.intro{padding:10px 2px 16px}.intro p{font-size:16px}.panel{border-radius:18px}.panelhead{padding:18px 16px 8px}.panelhead h2{font-size:23px}.choices{padding:9px 12px 16px}.bigchoice{min-height:84px;padding:15px}.bigchoice b{font-size:17px}.help{padding:0 16px 17px}.progresswrap{padding:15px 16px 0}.step,.summary{padding:19px 16px 18px}.step h2,.success h2{font-size:25px}.answer{min-height:66px;font-size:16px}.btn{min-height:54px}.facts{grid-template-columns:1fr}.row{grid-template-columns:92px 1fr}}
+:root{
+  --green:#5a761d;
+  --green-dark:#486014;
+  --gold:#d4a311;
+  --charcoal:#363b3d;
+  --ink:#4b4f50;
+  --muted:#777d7f;
+  --line:#dedede;
+  --soft:#f4f4f2;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.58}
+a{color:inherit}
+button,input,textarea{font:inherit}
+.demo-banner{background:#1d2224;color:#fff;text-align:center;padding:8px 12px;font-size:12px;letter-spacing:.01em}
+.site{width:min(1120px,calc(100% - 34px));margin:auto}
+.topline{padding:18px 0 13px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.logo-wrap{display:flex;align-items:center;min-height:78px}
+.logo-wrap img{display:block;max-width:330px;max-height:82px;object-fit:contain}
+.logo-fallback{font-size:30px;font-weight:700;color:#34393b;line-height:1}.logo-fallback span{display:block;color:var(--green);font-size:15px;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.contact-top{text-align:right;font-size:13px;color:#717677}
+.contact-top strong{display:block;font-size:18px;color:#3f4547;font-weight:400;margin-bottom:2px}
+.contact-top a{text-decoration:none}
+.nav-wrap{border-top:1px solid #ddd;border-bottom:1px solid #d7d7d7;background:#f3f3f1}
+nav.site{display:flex;align-items:stretch;min-height:48px}
+nav a{display:flex;align-items:center;padding:0 16px;text-decoration:none;text-transform:uppercase;font-size:12px;font-weight:700;color:#555b5d;border-right:1px solid #ddd}
+nav a:first-child{border-left:1px solid #ddd}
+nav a:hover{background:#fff;color:var(--green)}
+.hero{position:relative;background:linear-gradient(100deg,#4e5c56 0%,#6d7870 58%,#899087 100%);min-height:360px;display:flex;align-items:center;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;background:rgba(255,255,255,.08);transform:skewX(-20deg)}
+.hero:before{width:420px;height:520px;right:5%;top:-90px}.hero:after{width:240px;height:460px;right:29%;top:-30px}
+.hero-inner{position:relative;z-index:1;color:#fff;padding:55px 0}
+.hero-card{width:min(560px,100%);background:rgba(45,51,50,.82);padding:30px 32px;border-left:5px solid var(--green)}
+.hero h1{font-weight:400;font-size:42px;line-height:1.08;margin:0 0 13px;color:#fff}
+.hero p{font-size:18px;line-height:1.5;margin:0 0 22px;color:#f0f2ef}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:#fff;text-decoration:none;border:0;padding:13px 20px;font-weight:700;cursor:pointer}
+.cta:hover{background:var(--green-dark)}
+.breadcrumb{background:#f4f4f3;border-bottom:1px solid #e1e1df;padding:10px 0;font-size:12px;color:#8a8e8f}
+.content{padding:42px 0 20px}
+.content h2{font-size:31px;line-height:1.2;font-weight:400;color:#44494a;margin:0 0 18px}
+.content h3{font-size:22px;font-weight:400;color:#515657;margin:0 0 9px}
+.two-col{display:grid;grid-template-columns:1.7fr .7fr;gap:44px}
+.main-copy p{margin:0 0 15px}
+.sidebox{border-left:1px solid #ddd;padding-left:25px}
+.sidebox h3{font-size:18px;text-transform:uppercase;color:#555;margin-bottom:13px}
+.sidebox ul{list-style:none;padding:0;margin:0}.sidebox li{border-bottom:1px solid #e4e4e4;padding:8px 0}.sidebox a{text-decoration:none;color:#686d6e}.sidebox a:hover{color:var(--green)}
+.smart-section{margin:38px 0 42px;border-top:4px solid var(--green);background:#f5f5f2;padding:30px}
+.smart-head{display:flex;justify-content:space-between;gap:25px;align-items:flex-start;margin-bottom:23px}
+.smart-head h2{margin:0 0 7px;font-size:29px}.smart-head p{margin:0;color:#6c7273;max-width:670px}.smart-badge{white-space:nowrap;background:#e7ebdb;color:#526b1b;font-size:12px;padding:6px 9px;font-weight:700}
+.smart-start{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.smart-choice{border:1px solid #d2d2ce;background:#fff;padding:19px;text-align:left;cursor:pointer;min-height:102px;color:#515657}.smart-choice:hover,.smart-choice.selected{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}.smart-choice b{display:block;font-size:18px;color:#414647;margin-bottom:4px}.smart-choice span{color:#7a7f80;font-size:14px}
+.smart-flow{display:none;margin-top:19px;border-top:1px solid #d8d8d5;padding-top:23px}.smart-flow.active{display:block}.progressline{height:4px;background:#dededb;margin-bottom:22px}.progressbar{height:100%;background:var(--green);width:25%;transition:.2s}.step{display:none}.step.active{display:block}.step h3{font-size:23px;margin-bottom:6px}.step .sub{margin:0 0 16px;color:#777c7d}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #d4d4d0;background:#fff;padding:14px 15px;text-align:left;cursor:pointer;color:#515657}.answer:hover,.answer.selected{border-color:var(--green);background:#fbfcf7}.field{width:100%;border:1px solid #ccc;background:#fff;padding:12px;margin-bottom:11px;min-height:48px}.step label{display:block;font-weight:700;margin:10px 0 5px;color:#555}.small{font-size:12px;color:#888}.navbuttons{display:flex;gap:10px;margin-top:18px}.btn{border:0;padding:11px 17px;cursor:pointer;font-weight:700}.btn.primary{background:var(--green);color:#fff}.btn.secondary{background:#ddd;color:#555}.result{display:none}.result.active{display:block}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.customer-result{background:#fff;border:1px solid #d9d9d5;padding:20px}.customer-result .tick{font-size:30px;color:var(--green);font-weight:700}.customer-result h3{margin-top:5px}.leadcard{background:#414748;color:#fff;padding:20px}.leadcard h3{color:#fff;margin-bottom:12px}.leadrow{display:grid;grid-template-columns:95px 1fr;gap:10px;border-top:1px solid rgba(255,255,255,.15);padding:8px 0;font-size:13px}.leadrow span{color:#c9cece}.nextaction{background:#fff;color:#4b4f50;margin-top:12px;padding:11px}.nextaction small{display:block;color:#888}.benefits{padding:23px 0 0}.benefits ul{margin:8px 0 0;padding-left:18px;color:#666}.benefits li{margin:4px 0}
+.realisations{background:#f2f2f0;padding:42px 0 48px;margin-top:30px;border-top:1px solid #dfdfdc;border-bottom:1px solid #dfdfdc}.realisations h2{font-size:30px;font-weight:400;margin:0 0 8px;color:#464b4c}.realisations .introtext{margin:0 0 24px;color:#737879}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{background:#fff;border:1px solid #ddd}.project-image{height:145px;background:linear-gradient(145deg,#6c7771,#a1aaa4);position:relative}.project-image:after{content:"DAKWERKEN DEMESSEMAEKER";position:absolute;left:12px;bottom:10px;font-size:10px;color:rgba(255,255,255,.8);letter-spacing:.06em}.project-body{padding:16px}.project h3{font-size:18px;margin:0 0 5px}.project p{margin:0 0 10px;font-size:13px;color:#7b8081}.project a{font-size:12px;color:var(--green);font-weight:700;text-decoration:none}
+.footer{background:#383d3f;color:#c8cccc;margin-top:0;padding:37px 0}.footer-grid{display:grid;grid-template-columns:1.15fr 1fr .85fr .85fr;gap:30px}.footer h4{color:#fff;text-transform:uppercase;font-size:13px;margin:0 0 12px}.footer p,.footer li{font-size:13px;margin:0 0 5px}.footer ul{list-style:none;padding:0;margin:0}.footer a{text-decoration:none;color:#c8cccc}.foot-bottom{background:#2b3032;color:#959b9c;font-size:11px;padding:10px 0}
+@media(max-width:800px){
+  .site{width:min(100% - 24px,1120px)}.topline{align-items:flex-start}.logo-wrap img{max-width:230px}.contact-top strong{font-size:16px}nav.site{overflow:auto}nav a{white-space:nowrap;padding:0 12px}.hero{min-height:300px}.hero-card{padding:24px}.hero h1{font-size:34px}.two-col{grid-template-columns:1fr}.sidebox{border-left:0;border-top:1px solid #ddd;padding:20px 0 0}.smart-start,.answers,.result-grid{grid-template-columns:1fr}.smart-section{padding:22px 16px;margin-left:-4px;margin-right:-4px}.smart-head{display:block}.smart-badge{display:inline-block;margin-top:10px}.cards{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .demo-banner{font-size:11px}.topline{padding:11px 0}.logo-wrap{min-height:56px}.logo-wrap img{max-width:185px;max-height:58px}.contact-top{font-size:11px}.contact-top strong{font-size:14px}.contact-top .email{display:none}.nav-wrap{display:none}.hero{min-height:270px}.hero-inner{padding:34px 0}.hero-card{width:100%;padding:20px;border-left-width:4px}.hero h1{font-size:29px}.hero p{font-size:16px}.breadcrumb{display:none}.content{padding-top:28px}.content h2{font-size:25px}.smart-section{margin-top:26px}.smart-head h2{font-size:25px}.smart-choice{min-height:88px}.cards{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer{padding:30px 0}.result-grid{gap:12px}
+}
 </style>
 </head>
 <body>
-<div class="topnote">Privé concept voor Demessemaeker. Dit is geen officiële website en er wordt niets verstuurd.</div>
-<header class="shell"><div class="brand">Demessemaeker</div><a class="call" href="tel:+3214231591">Bel 014 23 15 91</a></header>
-<main class="shell">
-<section class="intro"><div class="kicker">Dakwerken in Herentals</div><h1>Wat is er aan de hand met uw dak?</h1><p>Kies wat het best past. U krijgt alleen de vragen die nodig zijn.</p></section>
-<section class="panel" id="start">
-<div class="panelhead"><h2>Waarmee kunnen we u helpen?</h2><p>Dit duurt ongeveer één minuut.</p></div>
-<div class="choices">
-<button class="bigchoice" data-start="urgent"><span><b>Er is een lek of schade</b><span>Waterinsijpeling, stormschade of een dringende herstelling.</span></span><span class="arrow">›</span></button>
-<button class="bigchoice" data-start="planned"><span><b>Ik wil dakwerken plannen</b><span>Renovatie, nieuwbouw, isolatie of grotere werken.</span></span><span class="arrow">›</span></button>
-</div>
-<div class="help">Liever meteen iemand spreken? <a href="tel:+3214231591">Bel Demessemaeker</a>.</div>
+<div class="demo-banner">DEMO — privé voorstel voor Demessemaeker · niet de officiële website · gegevens worden niet verzonden</div>
+
+<header>
+  <div class="site topline">
+    <div class="logo-wrap">
+      <img src="https://i.fcrmedia.com/goudengids.be/images/w460/000/231/153/231153637_demessemaeker_dakwerken_logo.webp" alt="Dakwerken Demessemaeker" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="logo-fallback" style="display:none">DEMESSEMAEKER<span>Dakwerken · Herentals</span></div>
+    </div>
+    <div class="contact-top"><strong>014 23 15 91</strong><span class="email">info@demessemaeker.be<br></span>Noordervaart 29 · 2200 Herentals</div>
+  </div>
+  <div class="nav-wrap">
+    <nav class="site">
+      <a href="#">Over ons</a><a href="#dakwerken">Dakwerken</a><a href="#">Gevelbekleding</a><a href="#">Isolatie</a><a href="#realisaties">Realisaties</a><a href="#">Merken & leveranciers</a><a href="#offerte">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="site hero-inner">
+    <div class="hero-card">
+      <h1>Totaalpakket voor daken en gevels</h1>
+      <p>Met een vast team biedt Demessemaeker advies, voorbereiding, uitvoering en nazorg voor dak- en gevelwerken.</p>
+      <a class="cta" href="#offerte">Gratis prijsofferte</a>
+    </div>
+  </div>
 </section>
-<section class="panel flow" id="flow">
-<div class="progresswrap"><div class="progressmeta"><span id="stepLabel">Vraag 1 van 4</span><span id="modeLabel"></span></div><div class="progress"><div class="bar" id="bar"></div></div></div>
-<div class="step" data-step="0"><h2 id="q1Title">Wat is er precies aan de hand?</h2><p class="sub" id="q1Sub">Kies wat het best past.</p><div class="answergrid" id="q1Answers"></div><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
-<div class="step" data-step="1"><h2>Waar zijn de werken?</h2><p class="sub">Een postcode is genoeg om te zien of de locatie past.</p><label for="postcode">Postcode</label><input class="field" id="postcode" inputmode="numeric" autocomplete="postal-code" placeholder="Bijvoorbeeld 2200" maxlength="8"><label for="street">Straat en huisnummer <span class="optional">optioneel in deze demo</span></label><input class="field" id="street" autocomplete="street-address" placeholder="Bijvoorbeeld Kerkstraat 12"><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" data-next>Verder</button></div></div>
-<div class="step" data-step="2"><h2 id="timingTitle">Hoe dringend is het?</h2><p class="sub" id="timingSub">Kies wat het best past.</p><div class="answergrid" id="timingAnswers"></div><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
-<div class="step" data-step="3"><h2>Hoe kunnen we u bereiken?</h2><p class="sub">In deze demo wordt niets verzonden of opgeslagen.</p><label for="name">Naam</label><input class="field" id="name" autocomplete="name" placeholder="Uw naam"><label for="phone">Telefoonnummer</label><input class="field" id="phone" inputmode="tel" autocomplete="tel" placeholder="Bijvoorbeeld 0470 12 34 56"><label for="photo">Foto toevoegen <span class="optional">optioneel</span></label><input class="photo" id="photo" type="file" accept="image/*"><div class="note">De foto blijft in deze demo alleen op uw toestel.</div><label for="note">Nog iets dat belangrijk is? <span class="optional">optioneel</span></label><textarea class="field" id="note" rows="3" placeholder="Kort bericht"></textarea><div class="nav"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" id="finish">Bekijk wat Demessemaeker ontvangt</button></div></div>
-<div class="summary" id="summary"><div class="success"><div class="check">✓</div><div><h2>Bedankt. Dit is duidelijk.</h2><p>In een echte versie kan Demessemaeker hier meteen mee verder.</p></div></div><div class="ownerlabel">Zo komt de aanvraag bij Demessemaeker binnen</div><div class="leadcard"><div class="badge" id="cardBadge">NIEUWE AANVRAAG</div><h3 id="cardTitle">Dakwerken</h3><div class="row"><span>Probleem</span><b id="cardProblem">—</b></div><div class="row"><span>Locatie</span><b id="cardLocation">—</b></div><div class="row"><span>Timing</span><b id="cardTiming">—</b></div><div class="row"><span>Foto</span><b id="cardPhoto">Geen foto</b></div><div class="row"><span>Contact</span><b id="cardContact">—</b></div><div class="actionbox"><small>Logische volgende stap</small><b id="cardAction">Terugbellen</b></div></div><div class="ownerbenefit"><h3>Wat verandert dit voor Demessemaeker?</h3><ul><li>Dringende problemen vallen meteen op.</li><li>Bij renovaties zijn locatie, soort werk en timing vooraf duidelijk.</li><li>Minder tijd kwijt aan terugbellen om eerst de basisinformatie te verzamelen.</li></ul></div><button class="btn secondary restart" type="button" id="restart">Opnieuw proberen</button></div>
-</section>
-<div class="facts"><div class="fact"><b>Renovatie en nieuwbouw</b><span>Volgens demessemaeker.be</span></div><div class="fact"><b>Plat en hellend dak</b><span>Volgens demessemaeker.be</span></div><div class="fact"><b>Herentals</b><span>Noordervaart 29</span></div></div>
+<div class="breadcrumb"><div class="site">Home &nbsp;›&nbsp; Dakwerken Demessemaeker</div></div>
+
+<main class="site content" id="dakwerken">
+  <div class="two-col">
+    <div class="main-copy">
+      <h2>Dakwerken en gevelbekleding: renovatie en nieuwbouw</h2>
+      <p>Voor een nieuw dak, een dakrenovatie, een plat of hellend dak kan u bij Demessemaeker terecht. Ook dakisolatie, gevelbekleding en verschillende vormen van dakafwerking behoren tot het aanbod.</p>
+      <p>Een goede offerte begint met een duidelijke aanvraag. Daarom staat hieronder een voorbeeld van hoe de huidige prijsaanvraag veel eenvoudiger en gerichter kan verlopen.</p>
+
+      <section class="smart-section" id="offerte">
+        <div class="smart-head">
+          <div><h2>Vraag vrijblijvend informatie of een offerte</h2><p>Kies eerst wat er aan de hand is. Zo krijgt u alleen de vragen die voor uw situatie nodig zijn.</p></div>
+          <span class="smart-badge">NIEUW IN DEZE DEMO</span>
+        </div>
+
+        <div class="smart-start" id="smartStart">
+          <button class="smart-choice" data-mode="urgent"><b>Ik heb een lek of schade</b><span>Waterinsijpeling, stormschade of een dringende herstelling.</span></button>
+          <button class="smart-choice" data-mode="planned"><b>Ik wil dakwerken plannen</b><span>Renovatie, nieuwbouw, isolatie of grotere werken.</span></button>
+        </div>
+
+        <div class="smart-flow" id="smartFlow">
+          <div class="progressline"><div class="progressbar" id="progressbar"></div></div>
+
+          <div class="step" data-step="0"><h3 id="problemTitle">Wat is er precies aan de hand?</h3><p class="sub">Kies wat het best past.</p><div class="answers" id="problemAnswers"></div><div class="navbuttons"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
+
+          <div class="step" data-step="1"><h3>Waar zijn de werken?</h3><p class="sub">Met de locatie kan Demessemaeker de aanvraag meteen juist inschatten.</p><label for="postcode">Postcode</label><input class="field" id="postcode" placeholder="Bijvoorbeeld 2200" inputmode="numeric"><label for="street">Straat en huisnummer <span class="small">optioneel in deze demo</span></label><input class="field" id="street" placeholder="Bijvoorbeeld Kerkstraat 12"><div class="navbuttons"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" data-next>Verder</button></div></div>
+
+          <div class="step" data-step="2"><h3 id="timingTitle">Wanneer wilt u geholpen worden?</h3><p class="sub">Kies wat het best past.</p><div class="answers" id="timingAnswers"></div><div class="navbuttons"><button class="btn secondary" type="button" data-back>Terug</button></div></div>
+
+          <div class="step" data-step="3"><h3>Hoe kan Demessemaeker u bereiken?</h3><p class="sub">In deze demo wordt niets verzonden of opgeslagen.</p><label for="name">Naam</label><input class="field" id="name" placeholder="Uw naam"><label for="phone">Telefoonnummer</label><input class="field" id="phone" placeholder="Bijvoorbeeld 0470 12 34 56" inputmode="tel"><label for="photo">Foto toevoegen <span class="small">optioneel</span></label><input class="field" id="photo" type="file" accept="image/*"><label for="note">Extra uitleg <span class="small">optioneel</span></label><textarea class="field" id="note" rows="3" placeholder="Kort bericht"></textarea><div class="navbuttons"><button class="btn secondary" type="button" data-back>Terug</button><button class="btn primary" type="button" id="finish">Aanvraag bekijken</button></div></div>
+
+          <div class="result" id="result">
+            <div class="result-grid">
+              <div class="customer-result"><div class="tick">✓</div><h3>Bedankt. Dit is duidelijk.</h3><p>In de echte versie kan Demessemaeker deze aanvraag meteen ontvangen en verder behandelen.</p><button class="btn secondary" id="restart" type="button">Opnieuw proberen</button></div>
+              <div class="leadcard"><h3>Nieuwe aanvraag</h3><div class="leadrow"><span>Type</span><b id="rMode">—</b></div><div class="leadrow"><span>Probleem</span><b id="rProblem">—</b></div><div class="leadrow"><span>Locatie</span><b id="rLocation">—</b></div><div class="leadrow"><span>Timing</span><b id="rTiming">—</b></div><div class="leadrow"><span>Contact</span><b id="rContact">—</b></div><div class="leadrow"><span>Foto</span><b id="rPhoto">—</b></div><div class="nextaction"><small>Volgende stap</small><b id="rAction">Terugbellen</b></div></div>
+            </div>
+            <div class="benefits"><h3>Voor Demessemaeker betekent dit:</h3><ul><li>lekken en dringende problemen vallen meteen op;</li><li>renovatie-aanvragen komen met de juiste basisinformatie binnen;</li><li>minder heen-en-weer bellen om eerst adres, soort werk en timing te verzamelen.</li></ul></div>
+          </div>
+        </div>
+      </section>
+
+      <p>Demessemaeker werkt voor renovatie en nieuwbouw en voert zowel platte als hellende daken uit. Ook onderhoud, herstellingen en isolatiewerken worden publiek aangeboden.</p>
+    </div>
+
+    <aside class="sidebox">
+      <h3>Dakwerken</h3>
+      <ul><li><a href="#">Hellende daken</a></li><li><a href="#">Platte daken</a></li><li><a href="#">Dakrenovatie</a></li><li><a href="#">Dakrestauratie</a></li><li><a href="#">Herstellingen en onderhoud</a></li><li><a href="#">Dakafwerking en goten</a></li></ul>
+      <h3 style="margin-top:28px">Contact</h3><p>Noordervaart 29<br>2200 Herentals<br><br>014 23 15 91<br>info@demessemaeker.be</p>
+    </aside>
+  </div>
 </main>
-<footer class="shell">Dit is een privé, niet-officieel concept van Nexa Project op basis van publiek vermelde bedrijfsinformatie van Demessemaeker. Er worden in deze demo geen gegevens verzonden of opgeslagen.</footer>
+
+<section class="realisations" id="realisaties">
+  <div class="site"><h2>Realisaties en referenties</h2><p class="introtext">Inspiratie voor dak- en gevelwerken.</p><div class="cards">
+    <article class="project"><div class="project-image"></div><div class="project-body"><h3>Pannendaken</h3><p>Kleidakpannen of betonpannen?</p><a href="#">Realisaties bekijken</a></div></article>
+    <article class="project"><div class="project-image"></div><div class="project-body"><h3>Leien daken</h3><p>Kunstleien en natuurleien.</p><a href="#">Realisaties bekijken</a></div></article>
+    <article class="project"><div class="project-image"></div><div class="project-body"><h3>Zinken daken</h3><p>Zink als dak- en gevelmateriaal.</p><a href="#">Realisaties bekijken</a></div></article>
+  </div></div>
+</section>
+
+<footer>
+  <div class="footer"><div class="site footer-grid">
+    <div><h4>Demessemaeker bvba</h4><p>Noordervaart 29<br>2200 Herentals<br>info@demessemaeker.be<br>tel. 014 23 15 91<br>fax 014 23 16 91</p></div>
+    <div><h4>Dakwerken</h4><ul><li>Hellende daken</li><li>Platte daken</li><li>Dakrenovatie</li><li>Dakrestauratie</li><li>Herstellingen en onderhoud</li><li>Dakafwerking en goten</li></ul></div>
+    <div><h4>Gevelwerken</h4><ul><li>Gevelbekleding en hout</li></ul></div>
+    <div><h4>Isolatiewerken</h4><ul><li>Hellende daken</li><li>Platte daken</li><li>Gevels</li></ul></div>
+  </div></div>
+  <div class="foot-bottom"><div class="site">Privé demo door Nexa Project · niet de officiële website van Demessemaeker · noindex/nofollow</div></div>
+</footer>
+
 <script>
-const start=document.getElementById('start'),flow=document.getElementById('flow'),steps=[...document.querySelectorAll('.step')],summary=document.getElementById('summary'),bar=document.getElementById('bar'),stepLabel=document.getElementById('stepLabel'),modeLabel=document.getElementById('modeLabel');
-let mode='',index=0;const data={problem:'',postcode:'',street:'',timing:'',name:'',phone:'',note:'',photo:false};
-const config={urgent:{label:'Dringend probleem',q1:'Wat is er precies aan de hand?',sub:'Kies wat het best past. U hoeft het probleem niet zelf te kunnen beoordelen.',problems:['Er komt water binnen','Stormschade','Losse of beschadigde dakdelen','Andere herstelling / ik weet het niet'],timingTitle:'Hoe dringend is het?',timingSub:'Zo weet Demessemaeker wat eerst bekeken moet worden.',timings:['Nu / vandaag','Zo snel mogelijk','Binnen enkele dagen','Niet dringend']},planned:{label:'Geplande dakwerken',q1:'Welke werken wilt u laten uitvoeren?',sub:'Een ruwe keuze is genoeg. U hoeft geen vaktermen te kennen.',problems:['Volledige dakrenovatie','Nieuw dak / nieuwbouw','Plat dak','Isolatie of andere dakwerken'],timingTitle:'Wanneer wilt u de werken ongeveer uitvoeren?',timingSub:'Een schatting is voldoende.',timings:['Zo snel mogelijk','Binnen 1 maand','Binnen 3 maanden','Later / ik oriënteer me nog']}};
-function makeAnswers(target,items,key){target.innerHTML='';items.forEach(txt=>{const b=document.createElement('button');b.type='button';b.className='answer';b.textContent=txt;b.addEventListener('click',()=>{target.querySelectorAll('.answer').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');data[key]=txt;setTimeout(()=>go(index+1),120)});target.appendChild(b)})}
-function begin(which){mode=which;index=0;const c=config[mode];modeLabel.textContent=c.label;document.getElementById('q1Title').textContent=c.q1;document.getElementById('q1Sub').textContent=c.sub;document.getElementById('timingTitle').textContent=c.timingTitle;document.getElementById('timingSub').textContent=c.timingSub;makeAnswers(document.getElementById('q1Answers'),c.problems,'problem');makeAnswers(document.getElementById('timingAnswers'),c.timings,'timing');start.style.display='none';flow.classList.add('active');summary.classList.remove('active');document.querySelector('.progresswrap').style.display='block';go(0);flow.scrollIntoView({behavior:'smooth',block:'start'})}
-function go(n){if(n<0){start.style.display='block';flow.classList.remove('active');start.scrollIntoView({behavior:'smooth'});return}index=Math.max(0,Math.min(3,n));steps.forEach((s,i)=>s.classList.toggle('active',i===index));summary.classList.remove('active');bar.style.width=((index+1)/4*100)+'%';stepLabel.textContent=`Vraag ${index+1} van 4`}
-document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>begin(b.dataset.start)));document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>go(index-1)));document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{data.postcode=document.getElementById('postcode').value.trim();data.street=document.getElementById('street').value.trim();if(!data.postcode){document.getElementById('postcode').focus();return}go(index+1)}));document.getElementById('photo').addEventListener('change',e=>data.photo=!!e.target.files.length);
-document.getElementById('finish').addEventListener('click',()=>{data.name=document.getElementById('name').value.trim();data.phone=document.getElementById('phone').value.trim();data.note=document.getElementById('note').value.trim();data.postcode=document.getElementById('postcode').value.trim();data.street=document.getElementById('street').value.trim();if(!data.name){document.getElementById('name').focus();return}if(!data.phone){document.getElementById('phone').focus();return}steps.forEach(s=>s.classList.remove('active'));document.querySelector('.progresswrap').style.display='none';summary.classList.add('active');document.getElementById('cardBadge').textContent=mode==='urgent'?'DRINGEND PROBLEEM':'GEPLANDE DAKWERKEN';document.getElementById('cardTitle').textContent=mode==='urgent'?'Nieuwe dringende aanvraag':'Nieuwe aanvraag voor dakwerken';document.getElementById('cardProblem').textContent=data.problem||'Niet ingevuld';document.getElementById('cardLocation').textContent=[data.street,data.postcode].filter(Boolean).join(', ')||'Niet ingevuld';document.getElementById('cardTiming').textContent=data.timing||'Niet ingevuld';document.getElementById('cardPhoto').textContent=data.photo?'Foto toegevoegd':'Geen foto toegevoegd';document.getElementById('cardContact').textContent=[data.name,data.phone].filter(Boolean).join(' · ');document.getElementById('cardAction').textContent=mode==='urgent'?'Terugbellen en dringendheid beoordelen':'Terugbellen en plaatsbezoek bespreken';summary.scrollIntoView({behavior:'smooth',block:'start'})});document.getElementById('restart').addEventListener('click',()=>location.reload());
+const state={mode:'',problem:'',postcode:'',street:'',timing:'',name:'',phone:'',photo:false};
+const start=document.getElementById('smartStart'),flow=document.getElementById('smartFlow'),steps=[...document.querySelectorAll('.step')],result=document.getElementById('result'),bar=document.getElementById('progressbar'),problemAnswers=document.getElementById('problemAnswers'),timingAnswers=document.getElementById('timingAnswers');let current=0;
+const cfg={urgent:{problems:['Er lekt water binnen','Stormschade of losse dakdelen','Een plaatselijke herstelling','Ik weet niet precies wat er mis is'],timings:['Zo snel mogelijk','Vandaag indien mogelijk','Binnen enkele dagen','Niet dringend']},planned:{problems:['Volledige dakrenovatie','Plat dak vernieuwen','Hellend dak vernieuwen','Isolatie of meerdere werken','Ik wil eerst advies'],timings:['Binnen enkele weken','Binnen enkele maanden','Later dit jaar','Ik weet het nog niet']}};
+function show(n){current=n;result.classList.remove('active');steps.forEach((s,i)=>s.classList.toggle('active',i===n));bar.style.width=((n+1)/4*100)+'%';window.scrollTo({top:document.getElementById('offerte').offsetTop-20,behavior:'smooth'})}
+function renderButtons(el,items,key,next=true){el.innerHTML='';items.forEach(txt=>{const b=document.createElement('button');b.type='button';b.className='answer';b.textContent=txt;b.onclick=()=>{state[key]=txt;[...el.children].forEach(x=>x.classList.remove('selected'));b.classList.add('selected');if(next)show(current+1)};el.appendChild(b)})}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{state.mode=b.dataset.mode;start.style.display='none';flow.classList.add('active');renderButtons(problemAnswers,cfg[state.mode].problems,'problem');renderButtons(timingAnswers,cfg[state.mode].timings,'timing');document.getElementById('problemTitle').textContent=state.mode==='urgent'?'Wat is er precies aan de hand?':'Welke werken plant u?';document.getElementById('timingTitle').textContent=state.mode==='urgent'?'Hoe dringend is het?':'Wanneer wilt u de werken uitvoeren?';show(0)});
+document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>{if(current===0){flow.classList.remove('active');start.style.display='grid'}else show(current-1)});document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>show(Math.min(current+1,3)));
+document.getElementById('finish').onclick=()=>{state.postcode=document.getElementById('postcode').value.trim();state.street=document.getElementById('street').value.trim();state.name=document.getElementById('name').value.trim();state.phone=document.getElementById('phone').value.trim();state.photo=document.getElementById('photo').files.length>0;steps.forEach(s=>s.classList.remove('active'));result.classList.add('active');document.getElementById('rMode').textContent=state.mode==='urgent'?'Dringend probleem':'Geplande dakwerken';document.getElementById('rProblem').textContent=state.problem||'Nog niet gekozen';document.getElementById('rLocation').textContent=[state.street,state.postcode].filter(Boolean).join(', ')||'Nog niet ingevuld';document.getElementById('rTiming').textContent=state.timing||'Nog niet gekozen';document.getElementById('rContact').textContent=[state.name,state.phone].filter(Boolean).join(' · ')||'Nog niet ingevuld';document.getElementById('rPhoto').textContent=state.photo?'Foto toegevoegd':'Geen foto';document.getElementById('rAction').textContent=state.mode==='urgent'?'Aanvraag bekijken en terugbellen':'Project bekijken en plaatsbezoek/offerte voorbereiden'};
+document.getElementById('restart').onclick=()=>{Object.keys(state).forEach(k=>state[k]=k==='photo'?false:'');flow.classList.remove('active');result.classList.remove('active');start.style.display='grid';document.getElementById('postcode').value='';document.getElementById('street').value='';document.getElementById('name').value='';document.getElementById('phone').value='';document.getElementById('note').value='';document.getElementById('photo').value='';window.scrollTo({top:document.getElementById('offerte').offsetTop-20,behavior:'smooth'})};
 </script>
-</body></html>
+</body>
+</html>
