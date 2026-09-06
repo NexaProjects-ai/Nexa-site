@@ -34,6 +34,6 @@ jobs:
           grep -q 'deel ze niet met derden' telecom/factuurcheck-start.html
 
           # Fail closed if the public flow starts handling files or transmitting data in-page.
-          ! grep -Eqi '<input[^>]+type=["'"'']?file|<form|fetch\(|XMLHttpRequest|navigator\.sendBeacon' telecom/index.html telecom/factuurcheck-start.html
+          ! grep -Eqi 'type=.file|<form|fetch\(|XMLHttpRequest|navigator\.sendBeacon' telecom/index.html telecom/factuurcheck-start.html
 
           echo 'Pages integrity OK: core site + telecom route/privacy invariants present.'
