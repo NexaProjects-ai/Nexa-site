@@ -4,95 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Telecomfactuur laten nakijken | Nexa Project</title>
-  <meta name="description" content="Stuur je zakelijke telecomfactuur door. Nexa bekijkt wat je betaalt, welke lijnen en bundels erop staan en waar verder nazicht zinvol kan zijn." />
+  <meta name="description" content="Stuur je zakelijke telecomfactuur door. Ik bekijk wat je betaalt, welke lijnen en bundels erop staan en wat verder nazicht verdient." />
   <style>
     :root{--paper:#f4f0e8;--ink:#171717;--signal:#ff5a36;--blue:#2035c7;--muted:#6e6a63;--line:#c9c2b7;--white:#fffdf7}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}a{color:inherit}
-    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:24px 0 16px;border-bottom:1px solid var(--ink)}.brand{font-weight:900;letter-spacing:-.04em;font-size:22px}.small{font-size:13px;color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;min-height:690px;border-bottom:1px solid var(--ink)}.hero-main{padding:64px 54px 56px 0;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.dot{width:10px;height:10px;background:var(--signal);border-radius:50%}
-    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(52px,7vw,96px);line-height:.94;letter-spacing:-.055em;margin:24px 0 28px;font-weight:500;max-width:900px}.hero-copy{font-size:21px;max-width:720px;margin:0 0 32px}.cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--white);text-decoration:none;padding:17px 22px;border:1px solid var(--ink);font-weight:800;font-size:16px;transition:.15s ease}.cta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--signal)}.micro{font-size:13px;color:var(--muted);max-width:350px}
-    .hero-aside{border-left:1px solid var(--ink);padding:54px 0 54px 42px;display:flex;align-items:center}.receipt{background:var(--white);width:100%;padding:28px 26px 34px;box-shadow:12px 12px 0 var(--blue);transform:rotate(1.2deg);font-family:'Courier New',monospace}.receipt h2{font-family:Arial,Helvetica,sans-serif;font-size:18px;margin:0 0 28px;letter-spacing:-.02em}.rrow{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px dashed #aaa;font-size:14px}.rrow b{font-weight:800}.stamp{display:inline-block;margin-top:26px;border:3px solid var(--signal);color:var(--signal);padding:7px 10px;font:900 14px Arial,Helvetica,sans-serif;transform:rotate(-4deg);text-transform:uppercase;letter-spacing:.06em}
-    .section{padding:86px 0;border-bottom:1px solid var(--ink)}.section-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4vw,62px);line-height:1;letter-spacing:-.04em;margin:0}.lede{font-size:20px;margin:0 0 30px;max-width:720px}.steps{counter-reset:step;border-top:1px solid var(--ink)}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}.step:before{content:'0' counter(step);font-family:'Courier New',monospace;font-weight:700;color:var(--blue)}.step h3{margin:0 0 6px;font-size:20px}.step p{margin:0;color:var(--muted);font-size:16px}
-    .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);margin-top:38px}.compare>div{padding:28px}.compare>div+div{border-left:1px solid var(--ink);background:var(--blue);color:white}.compare h3{margin:0 0 12px;font-size:18px}.compare p{margin:0;font-size:16px}.human{display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:end}.note{background:#f0e545;padding:28px;transform:rotate(-1.6deg);box-shadow:7px 7px 0 rgba(0,0,0,.14)}.note strong{display:block;font-size:18px;margin-bottom:10px}.note p{margin:0;font-size:15px}
-    .truth{margin-top:24px;border-left:4px solid var(--signal);padding:2px 0 2px 18px;max-width:720px;font-size:15px}.truth strong{display:block;margin-bottom:5px}
-    footer{padding:30px 0 50px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-    @media(max-width:820px){.hero,.section-grid,.human{grid-template-columns:1fr}.hero{min-height:auto}.hero-main{padding:48px 0}.hero-aside{border-left:0;border-top:1px solid var(--ink);padding:44px 6px 58px}.section{padding:60px 0}.section-grid{gap:34px}.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:1px solid var(--ink)}.note{max-width:420px}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}a{color:inherit}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:24px 0 16px;border-bottom:1px solid var(--ink)}.brand{font-weight:900;letter-spacing:-.04em;font-size:22px}.small{font-size:13px;color:var(--muted)}.hero{display:grid;grid-template-columns:1.15fr .85fr;min-height:690px;border-bottom:1px solid var(--ink)}.hero-main{padding:64px 54px 56px 0;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.dot{width:10px;height:10px;background:var(--signal);border-radius:50%}h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(52px,7vw,96px);line-height:.94;letter-spacing:-.055em;margin:24px 0 28px;font-weight:500;max-width:900px}.hero-copy{font-size:21px;max-width:720px;margin:0 0 32px}.cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--white);text-decoration:none;padding:17px 22px;border:1px solid var(--ink);font-weight:800;font-size:16px;transition:.15s ease}.cta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--signal)}.micro{font-size:13px;color:var(--muted);max-width:350px}.hero-aside{border-left:1px solid var(--ink);padding:54px 0 54px 42px;display:flex;align-items:center}.receipt{background:var(--white);width:100%;padding:28px 26px 34px;box-shadow:12px 12px 0 var(--blue);transform:rotate(1.2deg);font-family:'Courier New',monospace}.receipt h2{font-family:Arial,Helvetica,sans-serif;font-size:18px;margin:0 0 28px;letter-spacing:-.02em}.rrow{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px dashed #aaa;font-size:14px}.rrow b{font-weight:800}.stamp{display:inline-block;margin-top:26px;border:3px solid var(--signal);color:var(--signal);padding:7px 10px;font:900 14px Arial,Helvetica,sans-serif;transform:rotate(-4deg);text-transform:uppercase;letter-spacing:.06em}.section{padding:86px 0;border-bottom:1px solid var(--ink)}.section-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4vw,62px);line-height:1;letter-spacing:-.04em;margin:0}.lede{font-size:20px;margin:0 0 30px;max-width:720px}.steps{counter-reset:step;border-top:1px solid var(--ink)}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}.step:before{content:'0' counter(step);font-family:'Courier New',monospace;font-weight:700;color:var(--blue)}.step h3{margin:0 0 6px;font-size:20px}.step p{margin:0;color:var(--muted);font-size:16px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);margin-top:38px}.compare>div{padding:28px}.compare>div+div{border-left:1px solid var(--ink);background:var(--blue);color:white}.compare h3{margin:0 0 12px;font-size:18px}.compare p{margin:0;font-size:16px}.human{display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:end}.note{background:#f0e545;padding:28px;transform:rotate(-1.6deg);box-shadow:7px 7px 0 rgba(0,0,0,.14)}.note strong{display:block;font-size:18px;margin-bottom:10px}.note p{margin:0;font-size:15px}.truth{margin-top:24px;border-left:4px solid var(--signal);padding:2px 0 2px 18px;max-width:720px;font-size:15px}.truth strong{display:block;margin-bottom:5px}footer{padding:30px 0 50px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}@media(max-width:820px){.hero,.section-grid,.human{grid-template-columns:1fr}.hero{min-height:auto}.hero-main{padding:48px 0}.hero-aside{border-left:0;border-top:1px solid var(--ink);padding:44px 6px 58px}.section{padding:60px 0}.section-grid{gap:34px}.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:1px solid var(--ink)}.note{max-width:420px}}
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Nexa Project</div>
-      <div class="small">Een menselijke check van je zakelijke telecomfactuur</div>
-    </header>
-    <main>
-      <section class="hero">
-        <div class="hero-main">
-          <div>
-            <div class="eyebrow"><span class="dot"></span> Zakelijke telecom, zonder verkooppraat</div>
-            <h1>Betaal je te veel voor telecom in je zaak?</h1>
-            <p class="hero-copy">Stuur je laatste telecomfactuur door. Ik bekijk wat erop staat, waar kosten zich opstapelen en welke punten een echte vergelijking waard zijn. Geen automatische overstap. Eerst gewoon weten waar je staat.</p>
-            <div class="cta-row">
-              <a class="cta" href="./factuurcheck-start.html">Laat mijn factuur nakijken <span aria-hidden="true">→</span></a>
-              <div class="micro">Je uploadt hier niets. De factuur vertrekt pas wanneer jij ze zelf vanuit je mailbox verstuurt.</div>
-            </div>
-          </div>
-          <div class="small">De eerste audits worden rechtstreeks door Thibaut bekeken.</div>
-        </div>
-        <aside class="hero-aside" aria-label="Voorbeeld van wat we bekijken">
-          <div class="receipt">
-            <h2>Wat staat er eigenlijk op je factuur?</h2>
-            <div class="rrow"><span>Mobiele lijnen</span><b>bekijken</b></div>
-            <div class="rrow"><span>Data & bundels</span><b>bekijken</b></div>
-            <div class="rrow"><span>Internet & opties</span><b>bekijken</b></div>
-            <div class="rrow"><span>Toestellen / extra's</span><b>bekijken</b></div>
-            <div class="rrow"><span>Contractcontext</span><b>bekijken</b></div>
-            <span class="stamp">Eerst begrijpen. Dan vergelijken.</span>
-          </div>
-        </aside>
-      </section>
-      <section class="section">
-        <div class="section-grid">
-          <h2>Geen quiz. Je echte factuur.</h2>
-          <div>
-            <p class="lede">Een telecomfactuur laat zich niet betrouwbaar beoordelen met vijf losse vragen. Daarom draait deze check om het document zelf.</p>
-            <div class="steps">
-              <div class="step"><div><h3>Stuur je meest recente factuur</h3><p>Via e-mail, zodat jij zelf beslist welk document je doorstuurt. Klantnummer of telefoonnummers mag je gerust wegstrepen.</p></div></div>
-              <div class="step"><div><h3>We lezen ze lijn per lijn</h3><p>We kijken naar opbouw, lijnen, bundels, opties en opvallende kostenposten.</p></div></div>
-              <div class="step"><div><h3>Je krijgt een korte, concrete terugkoppeling</h3><p>Wat valt op? Wat verdient vergelijking? En wanneer is er juist géén reden om iets te veranderen?</p></div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-grid">
-          <h2>Waarom niet gewoon je provider bellen?</h2>
-          <div>
-            <p class="lede">Dat kan absoluut. Je provider kent zijn eigen abonnementen en kan daarin optimaliseren. Nexa begint ergens anders: bij je huidige factuur en wat je vandaag werkelijk betaalt.</p>
-            <div class="compare">
-              <div><h3>Provider</h3><p>Kan je contract en eigen aanbod toelichten en optimaliseren binnen zijn portfolio.</p></div>
-              <div><h3>Nexa</h3><p>Begint bij de factuur zelf: welke lijnen, bundels, opties en extra kosten staan erop, en welke daarvan verdienen verder nazicht?</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="human">
-          <div>
-            <div class="eyebrow"><span class="dot"></span> Waarom gratis?</div>
-            <h2 style="margin-top:18px">Omdat Nexa dit nu in de praktijk wil bewijzen.</h2>
-            <p class="lede" style="margin-top:28px">Nexa Project is nieuw. Elke echte factuur leert ons welke telecomproblemen bij Belgische KMO's terugkomen. Jij krijgt daarvoor een concrete analyse terug, zonder dat de check je iets kost of je tot een overstap verplicht.</p>
-            <div class="truth"><strong>En daarna?</strong>De gratis check is geen verkoop- of overstapopdracht. Als er later een betaald of bemiddeld vervolg komt, wordt dat vooraf duidelijk afgesproken.</div>
-            <a class="cta" style="margin-top:28px" href="./factuurcheck-start.html">Start met mijn factuur →</a>
-          </div>
-          <div class="note"><strong>Mens achter de check</strong><p>Thibaut bekijkt de eerste audits zelf. Geen chatbot die op basis van drie cijfers een besparing verzint.</p></div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <span>Nexa Project · Thibaut · hello@nexaproject.be</span>
-      <span>Facturen worden alleen gebruikt voor de aangevraagde analyse en niet gedeeld met derden.</span>
-    </footer>
-  </div>
-</body>
-</html>
+<body><div class="wrap">
+<header><div class="brand">Nexa Project</div><div class="small">Ik lees je zakelijke telecomfactuur eens rustig na. Regel per regel.</div></header>
+<main>
+<section class="hero"><div class="hero-main"><div><div class="eyebrow"><span class="dot"></span> Zakelijke telecom, zonder verkooppraat</div><h1>Betaal je te veel voor telecom in je zaak?</h1><p class="hero-copy">Stuur je laatste telecomfactuur door. Ik kijk wat erop staat, waar kosten zich opstapelen en wat de moeite is om eens te vergelijken. Zie ik niks noemenswaardig? Dan zeg ik je dat ook gewoon.</p><div class="cta-row"><a class="cta" href="./factuurcheck-start.html">Laat mijn factuur nakijken <span aria-hidden="true">→</span></a><div class="micro">Je uploadt hier niets. De factuur vertrekt pas wanneer jij ze zelf vanuit je mailbox verstuurt.</div></div></div><div class="small">Ik ben Thibaut en bekijk de eerste facturen zelf.</div></div><aside class="hero-aside"><div class="receipt"><h2>Wat staat er eigenlijk op je factuur?</h2><div class="rrow"><span>Mobiele lijnen</span><b>bekijken</b></div><div class="rrow"><span>Data & bundels</span><b>bekijken</b></div><div class="rrow"><span>Internet & opties</span><b>bekijken</b></div><div class="rrow"><span>Toestellen / extra's</span><b>bekijken</b></div><div class="rrow"><span>Contractcontext</span><b>bekijken</b></div><span class="stamp">Eerst begrijpen. Dan vergelijken.</span></div></aside></section>
+<section class="section"><div class="section-grid"><h2>Geen quiz. Je echte factuur.</h2><div><p class="lede">Met vijf losse vragen kan ik je telecomfactuur niet deftig beoordelen. Daarom begin ik bij het document zelf.</p><div class="steps"><div class="step"><div><h3>Stuur je meest recente factuur</h3><p>Via e-mail. Jij beslist zelf wat je doorstuurt. Klantnummer of telefoonnummers mag je gerust wegstrepen.</p></div></div><div class="step"><div><h3>Ik lees ze lijn per lijn</h3><p>Ik kijk naar lijnen, bundels, opties, extra kosten en dingen die niet meteen logisch lijken.</p></div></div><div class="step"><div><h3>Je krijgt een korte terugkoppeling</h3><p>Wat valt op? Wat zou ik vergelijken? En wanneer zou ik gewoon alles laten zoals het is?</p></div></div></div></div></div></section>
+<section class="section"><div class="section-grid"><h2>Waarom niet gewoon je provider bellen?</h2><div><p class="lede">Dat mag zeker. Je provider kent zijn eigen abonnementen het best. Ik vertrek alleen van een andere vraag: wat staat er vandaag op jouw factuur en klopt dat nog met wat je zaak nodig heeft?</p><div class="compare"><div><h3>Je provider</h3><p>Kent zijn eigen aanbod en kan je contract daarin aanpassen.</p></div><div><h3>Mijn check</h3><p>Ik begin bij wat je vandaag betaalt: lijnen, bundels, opties en extra kosten. Daarna weet je zelf of vergelijken de moeite is.</p></div></div></div></div></section>
+<section class="section"><div class="human"><div><div class="eyebrow"><span class="dot"></span> Waarom gratis?</div><h2 style="margin-top:18px">Omdat ik eerst wil bewijzen dat zo'n check echt iets oplevert.</h2><p class="lede" style="margin-top:28px">Nexa is nog nieuw. Elke echte factuur leert me waar telecomkosten bij KMO's scheef kunnen zitten. Jij krijgt er een eerlijke analyse voor terug. Geen automatische overstap en je moet nergens aan meedoen.</p><div class="truth"><strong>En daarna?</strong>De check zelf is gratis. Als er later een betaald of bemiddeld vervolg komt, spreek ik dat vooraf duidelijk met je af.</div><a class="cta" style="margin-top:28px" href="./factuurcheck-start.html">Start met mijn factuur →</a></div><div class="note"><strong>Ik ben Thibaut.</strong><p>Ik bekijk elke factuur zelf — geen chatbot die uit drie cijfers een besparing verzint die er niet is. Zie ik niks noemenswaardig? Dan zeg ik je dat ook gewoon.</p></div></div></section>
+</main><footer><span>Nexa Project · Thibaut · hello@nexaproject.be</span><span>Ik gebruik je factuur alleen voor de gevraagde analyse en deel ze niet met derden.</span></footer></div></body></html>
