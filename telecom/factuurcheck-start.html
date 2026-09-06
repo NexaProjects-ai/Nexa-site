@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Start je telecomfactuurcheck | Nexa Project</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--paper:#f4f0e8;--ink:#171717;--signal:#ff5a36;--blue:#2035c7;--muted:#6e6a63;--white:#fffdf7;--line:#c9c2b7}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+    .wrap{width:min(980px,calc(100% - 32px));margin:auto;min-height:100vh;display:flex;flex-direction:column}
+    header{padding:24px 0 16px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .brand{font-weight:900;letter-spacing:-.04em;font-size:22px}.small{font-size:13px;color:var(--muted)}
+    main{flex:1;display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;padding:74px 0}
+    h1{font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(48px,7vw,82px);line-height:.95;letter-spacing:-.055em;margin:0}
+    .lead{font-size:20px;margin:28px 0 0;max-width:520px}
+    .panel{border:1px solid var(--ink);background:var(--white)}
+    .panel-head{padding:24px 26px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between;gap:18px;align-items:center}
+    .panel-head strong{font-size:18px}.badge{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--blue)}
+    .item{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:24px 26px;border-bottom:1px solid var(--line)}
+    .num{font-family:'Courier New',monospace;color:var(--blue);font-weight:800}.item h2{font-size:18px;margin:0 0 5px}.item p{margin:0;color:var(--muted)}
+    .action{padding:28px 26px;background:var(--blue);color:white}
+    .action p{margin:0 0 18px;max-width:520px}.cta{display:inline-block;background:var(--paper);color:var(--ink);text-decoration:none;font-weight:900;padding:16px 20px;border:1px solid var(--ink)}
+    .cta:hover{box-shadow:4px 4px 0 var(--signal);transform:translate(-1px,-1px)}
+    .note{margin-top:18px;font-size:13px;opacity:.84}
+    .back{display:inline-block;margin-top:24px;font-size:14px;color:var(--muted)}
+    footer{padding:24px 0 42px;border-top:1px solid var(--ink);font-size:13px;color:var(--muted)}
+    @media(max-width:760px){main{grid-template-columns:1fr;gap:42px;padding:48px 0}.panel{margin-bottom:20px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><div class="brand">Nexa Project</div><div class="small">Telecomfactuur-analyse</div></header>
+    <main>
+      <section>
+        <h1>Stuur één factuur. Meer hoeft niet.</h1>
+        <p class="lead">Geen lang formulier. Je laatste zakelijke telecomfactuur bevat al bijna alles wat nodig is om te zien welke punten verder onderzocht moeten worden.</p>
+        <a class="back" href="./index.html">← Terug naar uitleg</a>
+      </section>
+
+      <section class="panel" aria-label="Stappen om een factuur te laten nakijken">
+        <div class="panel-head"><strong>Zo werkt het</strong><span class="badge">± 1 minuut van jouw tijd</span></div>
+        <div class="item"><div class="num">01</div><div><h2>Open een nieuwe e-mail</h2><p>De knop hieronder vult ontvanger en onderwerp alvast in.</p></div></div>
+        <div class="item"><div class="num">02</div><div><h2>Voeg je recentste factuur als PDF toe</h2><p>Je hoeft bedragen, lijnen of provider niet nog eens over te typen.</p></div></div>
+        <div class="item"><div class="num">03</div><div><h2>Zet er één zin bij</h2><p>Bijvoorbeeld: “Ik wil vooral weten of mijn mobiele lijnen nog logisch zitten.” Dat helpt om de analyse te richten.</p></div></div>
+        <div class="action">
+          <p>Deze website uploadt of bewaart zelf geen document. Je verstuurt de factuur rechtstreeks vanuit je eigen mailbox.</p>
+          <a class="cta" href="mailto:hello@nexaproject.be?subject=Telecomfactuur%20voor%20analyse&body=Dag%20Thibaut%2C%0A%0AHierbij%20mijn%20telecomfactuur.%0A%0AVooral%20dit%20wil%20ik%20graag%20laten%20nakijken%3A%20%0A%0AGroeten%2C">Open e-mail naar Nexa →</a>
+          <div class="note">Verwijder of maskeer gerust informatie die volgens jou niet nodig is om de telecomkosten te beoordelen.</div>
+        </div>
+      </section>
+    </main>
+    <footer>Nexa Project · Thibaut · hello@nexaproject.be</footer>
+  </div>
+</body>
+</html>
