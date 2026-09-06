@@ -21,4 +21,19 @@ jobs:
           test -f CNAME
           grep -qx 'nexaproject.be' CNAME
           test -f .nojekyll
-          echo 'Pages integrity OK: index.html, CNAME, .nojekyll present.'
+
+          # Telecom concierge-MVP: route + privacy invariants.
+          test -f telecom/index.html
+          test -f telecom/factuurcheck-start.html
+          grep -q 'lang="nl-BE"' telecom/index.html
+          grep -q 'href="./factuurcheck-start.html"' telecom/index.html
+          grep -q 'lang="nl-BE"' telecom/factuurcheck-start.html
+          grep -q 'content="noindex"' telecom/factuurcheck-start.html
+          grep -q 'mailto:hello@nexaproject.be' telecom/factuurcheck-start.html
+          grep -q 'De website zelf uploadt of bewaart geen document' telecom/factuurcheck-start.html
+          grep -q 'deel ze niet met derden' telecom/factuurcheck-start.html
+
+          # Fail closed if the public flow starts handling files or transmitting data in-page.
+          ! grep -Eqi '<input[^>]+type=["'"'']?file|<form|fetch\(|XMLHttpRequest|navigator\.sendBeacon' telecom/index.html telecom/factuurcheck-start.html
+
+          echo 'Pages integrity OK: core site + telecom route/privacy invariants present.'
